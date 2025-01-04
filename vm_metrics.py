@@ -28,6 +28,7 @@ ram_available {ram_available}"""
     # Return the metrics as plain text for Prometheus to scrape
     return Response(metrics, mimetype='text/plain')
 
+
 if __name__ == '__main__':
     # Run the Flask app on all network interfaces
     app.run(host='0.0.0.0', port=5000)
