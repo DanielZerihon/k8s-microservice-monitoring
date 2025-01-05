@@ -1,4 +1,5 @@
 # Kubernetes Microservice Monitoring with Prometheus and Grafana operators 
+[רשתותסיכום.pdf](https://github.com/user-attachments/files/18309936/default.pdf)
 
 ![image](https://github.com/user-attachments/assets/b140fb7b-a187-4d07-a8a4-bb7b02ad2ca5)
 
