@@ -1,6 +1,7 @@
 # Kubernetes Microservice Monitoring with Prometheus and Grafana operators 
 
-![image](https://github.com/user-attachments/assets/42aa9cfe-b9e1-422a-acaf-144af329ad2a)
+![image](https://github.com/user-attachments/assets/a0a4ac2c-6316-4493-a6b9-f0b000bc826b)
+
 
 
 
