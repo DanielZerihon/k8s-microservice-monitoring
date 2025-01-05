@@ -1,35 +1,35 @@
 from flask import Flask, Response
+from prometheus_client import Gauge, generate_latest, CollectorRegistry
 import psutil
 import os
 
+# Create a Flask app
 app = Flask(__name__)
+
+# Create a registry for custom metrics
+registry = CollectorRegistry()
+
+# Define Prometheus metrics
+cpu_used_gauge = Gauge('cpu_used', 'CPU usage in percentage', registry=registry)
+ram_used_gauge = Gauge('ram_used', 'RAM usage percentage', registry=registry)
+ram_available_gauge = Gauge('ram_available', 'RAM available percentage', registry=registry)
 
 @app.route('/metrics')
 def metrics():
-    # Collecting system stats
+    # Collect system stats
     cpu_used = round(float(os.popen('''grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage }' ''').readline()), 1)
     ram_used = psutil.virtual_memory().percent
     ram_available = round(psutil.virtual_memory().available * 100 / psutil.virtual_memory().total, 1)
-    number_of_sessions = round(float(os.popen('''who | wc -l''').readline()), 1)
 
-    # Prometheus metrics formatted correctly
-    metrics = f"""# HELP cpu_used CPU usage in percentage
-# TYPE cpu_used gauge
-cpu_used {cpu_used}
+    # Update Prometheus metrics
+    cpu_used_gauge.set(cpu_used)
+    ram_used_gauge.set(ram_used)
+    ram_available_gauge.set(ram_available)
 
-# HELP ram_used RAM usage percentage
-# TYPE ram_used gauge
-ram_used {ram_used}
-
-# HELP ram_available RAM available percentage
-# TYPE ram_available gauge
-ram_available {ram_available}"""
-
-    # Return the metrics as plain text for Prometheus to scrape
-    return Response(metrics, mimetype='text/plain')
+    # Generate and return the metrics in Prometheus format
+    return Response(generate_latest(registry), mimetype='text/plain')
 
 
 if __name__ == '__main__':
-    # Run the Flask app on all network interfaces
     app.run(host='0.0.0.0', port=5000)
 
