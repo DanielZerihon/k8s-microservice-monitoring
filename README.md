@@ -1,4 +1,3 @@
-```markdown
 # Kubernetes Microservice Monitoring with Prometheus and Grafana operators 
 
 This repository contains a k8s Flask-based microservice that exposes system metrics in Prometheus format and publish metrics in grafana dashboard. The microservice is containerized and deployed in a Kubernetes environment using Helm charts. Prometheus is used to scrape these metrics, and Grafana provides a visual representation via a custom dashboard.
@@ -14,7 +13,7 @@ This repository contains a k8s Flask-based microservice that exposes system metr
 
 ## Project Structure
 
-```plaintext
+```
 ├── vm_metrics.py             # Flask app exposing system metrics
 ├── Dockerfile                # Dockerfile for build the application
 ├── requirements.txt          # Python dependencies
