@@ -100,8 +100,7 @@ helm install monitor-flask-app .
    kubectl expose service prometheus-server --type=NodePort --target-port=9090 --name=prometheus-server-ext
 
 2. Open the port on your EC2 security group.
-3. 
-4. Open your browser and go to (http://<ec2-public-ip>:<PORT>).
+3. Open your browser and go to (http://<ec2-public-ip>:<PORT>).
 
 #### Access Grafana
 
