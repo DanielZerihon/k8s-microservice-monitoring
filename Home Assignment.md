@@ -1,7 +1,6 @@
-Home Assignment<br>
-Overview<br><br>
-This assignment requires you to containerize and deploy a microservice in Kubernetes,<br>
-while also integrating Prometheus and Grafana for monitoring and visualization of the<br>
+Home Assignment<br><br>
+Overview<br>
+This assignment requires you to containerize and deploy a microservice in Kubernetes, while also integrating Prometheus and Grafana for monitoring and visualization of the<br>
 service metrics.<br><br>
 The entire project should be designed to run on a Kubernetes environment (Can belocal environment using tools like k3s or k3d)<br>
 Requirements:<br>
