@@ -75,6 +75,7 @@ Check the status of Prometheus and Grafana:
 ```bash
 kubectl get pods
 ```
+![image](https://github.com/user-attachments/assets/cf57c4f5-8985-42a4-ba48-727fdcc44071)
 
 ---
 
