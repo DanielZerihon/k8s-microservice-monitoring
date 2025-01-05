@@ -1,6 +1,7 @@
 # Kubernetes Microservice Monitoring with Prometheus and Grafana operators 
 
-![image](https://github.com/user-attachments/assets/d7eb9816-8057-4212-8b47-cd0b8a25692f)
+![image](https://github.com/user-attachments/assets/42aa9cfe-b9e1-422a-acaf-144af329ad2a)
+
 
 
 This repository contains a k8s Flask-based microservice that exposes system metrics in Prometheus format and publish metrics in grafana dashboard. The microservice is containerized and deployed in a Kubernetes environment using Helm charts. Prometheus is used to scrape these metrics, and Grafana provides a visual representation via a custom dashboard.
