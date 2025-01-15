@@ -152,6 +152,7 @@ helm upgrade monitor-flask-app .
 
 ---
 
+
 ## Conclusion
 
 This project demonstrates how to containerize a microservice, deploy it in Kubernetes, and set up monitoring and visualization using Prometheus and Grafana operators. 
