@@ -19,9 +19,11 @@ jobs:
         python-version: [3.9]
 
     steps:
-    - name: print metric_name value
-      run: |
-        echo The value is ${{ inputs.metric_name }}
+    - name: Set environment variable for metric name
+      env:
+        METRIC_NAME: "${{ inputs.metric_name }}"
+    - name: print metric name
+      run: echo "${{ METRIC_NAME }}"
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v2
