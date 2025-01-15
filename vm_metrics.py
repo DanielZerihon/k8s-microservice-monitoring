@@ -9,6 +9,8 @@ app = Flask(__name__)
 # Create a registry for custom metrics
 registry = CollectorRegistry()
 
+metric_name_prefix = os.getenv('METRIC_NAME', 'default')
+
 # Define Prometheus metrics
 cpu_used_gauge = Gauge('cpu_used', 'CPU usage in percentage', registry=registry)
 ram_used_gauge = Gauge('ram_used', 'RAM usage percentage', registry=registry)
@@ -17,9 +19,10 @@ ram_available_gauge = Gauge('ram_available', 'RAM available percentage', registr
 @app.route('/metrics')
 def metrics():
     # Collect system stats
-    cpu_used = round(float(os.popen('''grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage }' ''').readline()), 1)
-    ram_used = psutil.virtual_memory().percent
-    ram_available = round(psutil.virtual_memory().available * 100 / psutil.virtual_memory().total, 1)
+    cpu_used_gauge = Gauge(f'{metric_name_prefix}_cpu_used', 'CPU usage in percentage', registry=registry)
+    ram_used_gauge = Gauge(f'{metric_name_prefix}_ram_used', 'RAM usage percentage', registry=registry)
+    ram_available_gauge = Gauge(f'{metric_name_prefix}_ram_available', 'RAM available percentage', registry=registry)
+
 
     # Update Prometheus metrics
     cpu_used_gauge.set(cpu_used)
