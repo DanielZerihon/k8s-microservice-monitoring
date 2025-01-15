@@ -1,6 +1,7 @@
 name: My First GitHub Actions
 
-on: [push]
+on: 
+  push:
   workflow_dispatch:
     inputs:
       metric_name:
