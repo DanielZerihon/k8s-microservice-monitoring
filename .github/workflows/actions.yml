@@ -26,4 +26,4 @@ jobs:
       run: |
         pwd
         ls -ltr
-        python -m pytest addition.py
+        python pytest github_pipline_tests/test_commit.py
