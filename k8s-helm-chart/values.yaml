@@ -3,7 +3,7 @@ replicaCount: 3
 image:
   repository: danielzerihon/k8s-microservice-monitoring
   pullPolicy: Always
-  tag: 22
+  tag: latest
 
 service:
   name: monitor-flask-app
